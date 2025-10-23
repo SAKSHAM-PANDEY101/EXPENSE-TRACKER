@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-wallet"></i>
+                    <span>ExpenseTracker</span>
+                </div>
+                                <div style="display:flex;align-items:center;gap:12px">
+                                    <div class="date-display" id="currentDate"></div>
+                                    <button id="logoutBtn" class="btn" style="background:#f03e3e;padding:8px 10px;font-size:0.9rem;display:none">Logout</button>
+                                </div>
+            </div>
+        </header>
+
+        <section class="dashboard">
+            <div class="card income">
+                <h3>Total Income</h3>
+                <div class="amount">$<span id="totalIncome">0.00</span></div>
+            </div>
+            <div class="card expenses">
+                <h3>Total Expenses</h3>
+                <div class="amount">$<span id="totalExpenses">0.00</span></div>
+            </div>
+            <div class="card balance">
+                <h3>Current Balance</h3>
+                <div class="amount">$<span id="currentBalance">0.00</span></div>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <div class="form-container">
+                <h2><i class="fas fa-plus-circle"></i> Add Transaction</h2>
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select id="type" class="form-control" required>
+                            <option value="expense">Expense</option>
+                            <option value="income">Income</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" class="form-control" placeholder="Enter description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" class="form-control" placeholder="0.00" min="0.01" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" class="form-control" required>
+                            <option value="">Select a category</option>
+                            <option value="salary">Salary</option>
+                            <option value="freelance">Freelance</option>
+                            <option value="investment">Investment</option>
+                            <option value="food">Food & Dining</option>
+                            <option value="transport">Transportation</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="bills">Bills & Utilities</option>
+                            <option value="health">Health</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn">Add Transaction</button>
+                </form>
+            </div>
+
+            <div class="expense-list">
+                <h2><i class="fas fa-list"></i> Recent Transactions</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="income">Income</button>
+                    <button class="filter-btn" data-filter="expense">Expenses</button>
+                </div>
+                <div class="table-container">
+                    <table class="expense-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsList">
+                            <!-- Transactions will be added here dynamically -->
+                        </tbody>
+                    </table>
+                    <div id="emptyState" class="empty-state">
+                        <i class="fas fa-receipt"></i>
+                        <h3>No transactions yet</h3>
+                        <p>Add your first transaction to get started</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2><i class="fas fa-chart-pie"></i> Expense Overview</h2>
+            <div class="chart" id="expenseChart">
+                <!-- Chart bars will be added here dynamically -->
+            </div>
+        </div>
+
+        <footer>
+            <p>ExpenseTracker &copy; 2023 | Track your expenses easily</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

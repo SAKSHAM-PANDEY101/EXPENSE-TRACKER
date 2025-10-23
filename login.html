@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Expense Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* small overrides for login page */
+    .login-container { max-width: 400px; margin: 80px auto; }
+    .login-card { padding: 30px; text-align: left; }
+    .login-card h2 { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container login-container">
+    <div class="login-card card">
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" type="password" class="form-control" required />
+        </div>
+        <div class="form-group" id="confirmGroup" style="display:none">
+          <label for="confirm">Confirm Password</label>
+          <input id="confirm" type="password" class="form-control" />
+        </div>
+        <button class="btn" type="submit">Sign in</button>
+        <div id="loginMessage" style="margin-top:10px;color:var(--danger);display:none"></div>
+      </form>
+      <div style="margin-top:12px; display:flex; gap:8px; align-items:center">
+        <label style="font-size:0.9rem"><input type="checkbox" id="registerToggle"/> Create account</label>
+        <button id="guestBtn" class="btn" style="background:#6c757d; padding:6px 10px; font-size:0.9rem">Continue as Guest</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
